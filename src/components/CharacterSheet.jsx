@@ -33,8 +33,8 @@ export default class CharacterSheet extends React.Component {
         <p className="character-name">Character Name: </p>
         <p>Level: 1</p>
         <p>HP - {this.state.hp}</p>
-        <button onClick={this.addHealth}>+</button>
-        <button onClick={this.loseHealth}>-</button>
+        <button className="hp-button" onClick={this.addHealth}>+</button>
+        <button className="hp-button" onClick={this.loseHealth}>-</button>
       </div>
     );
   }
