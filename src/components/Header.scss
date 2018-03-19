@@ -1,0 +1,22 @@
+@import '../styles/variables';
+@import '../styles/grid';
+
+.Header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.Header-title {
+  font-size: 1.5em;
+}
+
+.Header-navlink {
+  color: #FFF;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.active-nav-item {
+  text-decoration: underline;
+}
