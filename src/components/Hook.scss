@@ -1,0 +1,15 @@
+.Hook {
+  border-top: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  color: #FFF;
+  font-size: 1.2em;
+  grid-column: span 12;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.Hook-text {
+  &:before {
+    content: "> "
+  }
+}
