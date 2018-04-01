@@ -23,30 +23,41 @@ export default class HooksPage extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const hookText = this.state.hookText;
-    debugger;
-    const hook = {
-      hookText
-    };
-    this.setState((prevState) => { 
-      return { 
-        hooks: prevState.hooks.concat(hook),
-        hookText: '',
-        formShow: false 
-      } 
-    });
+
+    if(!hookText) {
+      const error = 'Please enter some text!'
+      return this.setState(() => ({error}));
+    } else {
+      const hook = {
+        hookText
+      };
+      this.setState((prevState) => { 
+        return { 
+          hooks: [hook].concat(prevState.hooks),
+          hookText: '',
+          formShow: false, 
+          error: ''
+        } 
+      });
+    }
   }
 
   // TODO: Get this shit to work
   handleChange(e) {
-    // debugger;
-    this.setState(() => { return { hookText: e.target.value}});
+    const text = e.target.value;
+    this.setState(() => { return { hookText: text}});
+  }
+
+  isEmpty(array) {
+    return (array && array.length === 0);
   }
 
   render() {
     return (
       <div className="HooksPage container">
         <button className="add-button" onClick={this.showForm}>Add Hook</button>
-        {this.state.formShow && 
+        { (this.isEmpty(this.state.hooks) && !this.state.formShow) && <p>Put some story elements here!</p> }
+        { this.state.formShow && 
           <form className="row" onSubmit={this.handleSubmit}>
             <textarea 
               autoFocus 
@@ -56,13 +67,14 @@ export default class HooksPage extends React.Component {
               placeholder="Type Hook Here..."
               onChange={this.handleChange}
               value={this.state.hookText}
+              className={`${this.state.error ? 'error' : ''}`}
             ></textarea>
-            <input className="add-button row" type="submit" value="Save Hook" />
+            <input className="add-button row" type="submit" value="Save" />
+            {this.state.error && <p>{this.state.error}</p>}
           </form>
         }
-        { this.state.hooks[0] && <Hook hookText={this.state.hooks[0].hookText} />}
-        {this.state.hooks.map((hook) => {
-          <p>{hook.hookText}</p>
+        { this.state.hooks.map((hook, index) => {
+          return <Hook key={index} hookText={hook.hookText} />
         })}
       </div>
     )

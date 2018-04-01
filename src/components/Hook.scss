@@ -3,13 +3,29 @@
   border-bottom: 2px solid #FFF;
   color: #FFF;
   font-size: 1.2em;
-  grid-column: span 12;
-  margin: 20px 0;
+  margin: 20px auto;
   padding: 20px 0;
+  width: 80%;
 }
 
-.Hook-text {
-  &:before {
-    content: "> "
+.Hook-text.finished {
+  text-decoration: line-through;
+}
+
+.close {
+  border: 1px solid #FFF;
+  margin-right: 20px;
+  padding: 5px 11px;
+  text-decoration: none !important;
+  &:hover {
+    background: #000;
+    cursor: pointer;
+  }
+}
+
+@supports (display: grid) {
+  .Hook {
+    -webkit-grid-column: span 8;
+    grid-column: span 8;
   }
 }

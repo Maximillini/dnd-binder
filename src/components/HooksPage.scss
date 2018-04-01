@@ -1,3 +1,15 @@
+.HooksPage p {
+  color: #FFF;
+}
+
 form {
-  display: block;
+  margin: 20px auto;
+  width: 80%;
+  .add-button {
+    display: block;
+    margin: 20px 0;
+  }
+  textarea.error {
+    box-shadow: 0px 0px 30px 10px #FFF;
+  }
 }
