@@ -12,8 +12,7 @@ export default class Hook extends React.Component {
   }
 
   finish() {
-    debugger;
-    this.setState(() => { return { finished: true }});
+    this.setState((prevState) => { return { finished: !prevState.finished }});
   }
 
   render() {
