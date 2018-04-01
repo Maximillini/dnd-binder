@@ -30,7 +30,8 @@ export default class CharacterSheet extends React.Component {
   render() {
     return (
       <div className="CharacterSheet">
-        <p className="character-name">Character Name: </p>
+        <p className="name">Character Name: </p>
+        <p className="name">Player Name: </p>
         <p>Level: 1</p>
         <p>HP - {this.state.hp}</p>
         <button className="hp-button" onClick={this.addHealth}>+</button>
