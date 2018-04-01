@@ -10,8 +10,12 @@
 
 .Hook-text.finished {
   text-decoration: line-through;
+  .close {
+    background: #000;
+  }
 }
 
+// TODO: Fix so that X does not get line-through on finished
 .close {
   border: 1px solid #FFF;
   margin-right: 20px;
